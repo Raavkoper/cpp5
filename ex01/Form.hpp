@@ -1,6 +1,10 @@
 #ifndef FORM_H
 #define FORM_H
+
 #include <iostream>
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
  
 class Form {
 private: 
@@ -11,12 +15,20 @@ private:
  
 public: 
 	Form(); 
-	Form( const Form &rhs); 
+	Form( const Form &other); 
 	Form(const std::string newName, bool newSigned, const int newSign_grade, const int newExecute_grade);
 	~Form(); 
-	Form& operator=( const Form &rhs); 
+	Form& operator=( const Form &other); 
 
 	const int gradeChecker(int grade);
+	const int getSign_grade();
+	const int getExecute_grade();
+	const std::string getName();
+	bool getSign();
+
+	bool beSigned(Bureaucrat &burrie);
 }; 
  
+std::ostream &operator<<(std::ostream &os, Form &obj);
+
 #endif

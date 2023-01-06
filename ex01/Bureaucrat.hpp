@@ -2,6 +2,9 @@
 #define BUREAUCRAT_H
 
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
  
 class Bureaucrat {
 private: 
@@ -22,6 +25,7 @@ public:
 	void gradeChecker(int &grade);
 	std::string getName() const;
 	int	getGrade() const;
+	void signForm(Form &form);
 }; 
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);

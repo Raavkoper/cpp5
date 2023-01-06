@@ -1,39 +1,25 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main() {
-	std::cout << "Creating the objects and setting their values" << std::endl;
-	std::cout << std::endl;
-
-	Bureaucrat man1("Jonathan", 53);
-	Bureaucrat man2("Tessa", 104);
-	Bureaucrat man3("Martin", 150);
-	Bureaucrat man4("Chris", -10);
+	Form form1("Form1", 0, 160, -1);
+	Form form2("Form2", 0, 100, 100);
+	Form declaration("Declaration of independence", 0, 55, 60);
 
 	std::cout << std::endl;
-	std::cout << "Printing out their values" << std::endl;
+	std::cout << "Trying to get someone to sign the Declaration of independence" << std::endl;
 	std::cout << std::endl;
 
+	Bureaucrat man1("Billy", 90);
+	Bureaucrat man2("Jimson", 25);
 
-	std::cout << man1 << std::endl;
-	std::cout << man2 << std::endl;
-	std::cout << man3 << std::endl;
-	std::cout << man4 << std::endl;
-
-	std::cout << std::endl;
-	std::cout << "Decrementing Chris his value ten times" << std::endl;
-	std::cout << std::endl;
-
-	for (int i = 0; i < 10; i++) {
-		man4--;
-	}
-
-	std::cout << man4 << std::endl;
+	man1.signForm(declaration);
+	man2.signForm(declaration);
 
 	std::cout << std::endl;
-	std::cout << "Incrementing Chris his value eleven times" << std::endl;
+	std::cout << "Trying to get someone to sign Form2" << std::endl;
 	std::cout << std::endl;
 
-	for (int i = 0; i < 11; i++) {
-		man4++;
-	}
+	man1.signForm(form2);
+	man2.signForm(form2);
 }

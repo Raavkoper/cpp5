@@ -22,7 +22,7 @@ void Bureaucrat::gradeChecker(int &grade) {
 }
 
 Bureaucrat::Bureaucrat() : 
-	name("Nameless Bureaucrat"), grade(100) {}
+	name("Nameless Bureaucrat"), grade(150) {}
  
 Bureaucrat::Bureaucrat( const Bureaucrat& other) :
 	name(other.name), grade(other.grade) {}
@@ -61,6 +61,14 @@ std::string Bureaucrat::getName() const {
 
 int Bureaucrat::getGrade() const {
 	return (grade);
+}
+
+void Bureaucrat::signForm(Form &form) {
+	if (form.beSigned(*this))
+		std::cout << *this << " signed " << form << std::endl;
+	else
+		std::cout << *this << " couldn't sign " << form.getName() << " because Bureaucrat " << name << "'s grade is too low" << std::endl;
+
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj) {
