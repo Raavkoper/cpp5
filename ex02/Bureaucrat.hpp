@@ -21,11 +21,12 @@ public:
 	Bureaucrat operator++(int);
 	Bureaucrat operator--(int);
 
-
 	void gradeChecker(int &grade);
 	std::string getName() const;
 	int	getGrade() const;
 	void signAForm(AForm &form);
+
+	void executeForm(AForm const &form);
 }; 
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);

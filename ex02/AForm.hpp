@@ -21,11 +21,13 @@ public:
 	AForm& operator=( const AForm &other); 
 
 	const int gradeChecker(int grade);
-	const int getSign_grade();
-	const int getExecute_grade();
-	const std::string getName();
-	bool getSign();
+	const int getSign_grade() const;
+	const int getExecute_grade() const;
+	const std::string getName() const;
+	bool getSign() const;
 
+	void setSign(bool new_sign);
+	void virtual execute(Bureaucrat &executor) const = 0;
 	bool beSigned(Bureaucrat &burrie);
 }; 
  

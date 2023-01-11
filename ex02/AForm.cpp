@@ -51,19 +51,19 @@ AForm&	AForm::operator=( const AForm& other ) {
 
 /* --getters-- */
 
-const int AForm::getSign_grade() {
+const int AForm::getSign_grade() const {
 	return (sign_grade);
 }
 
-const int AForm::getExecute_grade() {
+const int AForm::getExecute_grade() const {
 	return (execute_grade);
 }
 
-const std::string AForm::getName() {
+const std::string AForm::getName() const {
 	return (name);
 }
 
-bool AForm::getSign() {
+bool AForm::getSign() const {
 	return (sign);
 }
 
@@ -80,6 +80,14 @@ bool AForm::beSigned(Bureaucrat &burrie) {
 		std::cerr << "AForm::GradeTooLowException" << std::endl;
 		return (0);
 	}
+}
+
+// void AForm::execute(Bureaucrat &executor) {
+
+// }
+
+void AForm::setSign(bool new_sign) {
+	sign = new_sign;
 }
 
 std::ostream &operator<<(std::ostream &os, AForm &obj) {

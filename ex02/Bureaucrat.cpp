@@ -64,11 +64,23 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::signAForm(AForm &form) {
+	if (form.getSign()) {
+		std::cout << "Form has already been signed doughnut, Someone fire this clown" << std::endl;
+		return ;
+	}
 	if (form.beSigned(*this))
 		std::cout << *this << " signed " << form << std::endl;
 	else
 		std::cout << *this << " couldn't sign " << form.getName() << " because Bureaucrat " << name << "'s grade is too low" << std::endl;
+}
 
+void Bureaucrat::executeForm(AForm const &form) {
+	if (form.getSign()) {
+		form.execute(*this);
+		std::cout << "Form " << form.getName() << " has been executed by " << getName() << std::endl;
+	}
+	else
+		std::cerr << "Form hasnt been signed yet" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj) {
