@@ -4,12 +4,12 @@
 #include "PresidentialPardonForm.hpp"
 
 int main() {
-	// ShrubberyCreationForm shrubby("Bamboo");
+	ShrubberyCreationForm shrubby("Bamboo");
 	Bureaucrat jonna("Jonna", 145), bammi("Bammi", 50), fresku("Fresku", 4);
 
 	// bammi.signAForm(shrubby);
-	// bammi.signAForm(shrubby);
-	// bammi.executeForm(shrubby);
+	bammi.signForm(shrubby);
+	bammi.executeForm(shrubby);
 
 	// PresidentialPardonForm pressy("Obama");
 	// bammi.signForm(pressy);
