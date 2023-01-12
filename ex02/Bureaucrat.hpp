@@ -24,7 +24,7 @@ public:
 	void gradeChecker(int &grade);
 	std::string getName() const;
 	int	getGrade() const;
-	void signAForm(AForm &form);
+	void signForm(AForm &form);
 
 	void executeForm(AForm const &form);
 }; 

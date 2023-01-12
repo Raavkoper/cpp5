@@ -63,9 +63,9 @@ int Bureaucrat::getGrade() const {
 	return (grade);
 }
 
-void Bureaucrat::signAForm(AForm &form) {
+void Bureaucrat::signForm(AForm &form) {
 	if (form.getSign()) {
-		std::cout << "Form has already been signed doughnut, Someone fire this clown" << std::endl;
+		std::cout << "Form has already been signed donut, Someone fire this clown" << std::endl;
 		return ;
 	}
 	if (form.beSigned(*this))

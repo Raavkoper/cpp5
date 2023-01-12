@@ -10,13 +10,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string new_target) :
 
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm& other) {
 	target = other.target;
-
-	*this = other;
 }
  
-ShrubberyCreationForm::~ShrubberyCreationForm() {
-
-}
+ShrubberyCreationForm::~ShrubberyCreationForm() {} 
 
 ShrubberyCreationForm&	ShrubberyCreationForm::operator=( const ShrubberyCreationForm& other ) {
 	return *this;
