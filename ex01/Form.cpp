@@ -1,32 +1,8 @@
 #include "Form.hpp"
 
-const int Form::gradeChecker(int grade) {
-	try {
-		if (grade < 1) {
-			grade = 1;
-			throw 1;
-		}
-		if (grade > 150) {
-			grade = 150;
-			throw 2;
-		}
-	}
-	catch (int error) {
-		if (error == 2) {
-			std::cerr << "Form::GradeTooLowException" << std::endl;
-		}
-		if (error == 1) {
-			std::cerr << "Form::GradeTooHighException" << std::endl;
-		}
-	}
-	return (grade);
-}
-
 Form::Form()
 	: name("Unset Form"), sign(0), sign_grade(150), execute_grade(150)
-{
-
-}
+{}
  
 Form::Form( const Form& other) :
 	sign_grade(other.sign_grade), execute_grade(other.execute_grade) {
@@ -37,13 +13,9 @@ Form::Form( const Form& other) :
  
 Form::Form(const std::string newName, bool newSigned, const int newSign_grade, const int newExecute_grade) 
 	: name(newName), sign(newSigned), sign_grade(gradeChecker(newSign_grade)), execute_grade(gradeChecker(newExecute_grade))
-{
+{}
 
-}
-
-Form::~Form() {
-
-}
+Form::~Form() {}
 
 Form&	Form::operator=( const Form& other ) {
 	return *this;
@@ -80,6 +52,15 @@ bool Form::beSigned(Bureaucrat &burrie) {
 		std::cerr << "Form::GradeTooLowException" << std::endl;
 		return (0);
 	}
+}
+
+void Form::setGrade(int new_grade) {
+	if (new_grade < 1)
+		throw GradeTooHighException();
+	else if (new_grade > 150)
+		throw GradeTooLowException();
+	else
+		grade = new_grade;
 }
 
 std::ostream &operator<<(std::ostream &os, Form &obj) {
