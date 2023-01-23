@@ -18,10 +18,17 @@ public:
 	Bureaucrat operator++(int);
 	Bureaucrat operator--(int);
 
-
-	void gradeChecker(int &grade);
+	void setGrade(int new_grade);
 	std::string getName() const;
 	int	getGrade() const;
+
+	class GradeTooLowException : public std::exception {
+		const char *what() const throw();
+	};
+
+	class GradeTooHighException : public std::exception {
+		const char *what() const throw();
+	};
 }; 
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj);
