@@ -2,7 +2,11 @@
 #include "Form.hpp"
 
 int main() {
-	Form form1("Form1", 0, 160, -1);
+	try {
+		Form form1("Form1", 0, 160, -1);
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
 	Form form2("Form2", 0, 100, 100);
 	Form declaration("Declaration of independence", 0, 55, 60);
 
@@ -13,7 +17,11 @@ int main() {
 	Bureaucrat man1("Billy", 90);
 	Bureaucrat man2("Jimson", 25);
 
-	man1.signForm(declaration);
+	try {
+		man1.signForm(declaration);
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
 	man2.signForm(declaration);
 
 	std::cout << std::endl;

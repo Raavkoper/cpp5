@@ -20,7 +20,18 @@ public:
 	~AForm(); 
 	AForm& operator=( const AForm &other); 
 
-	const int gradeChecker(int grade);
+	class GradeTooLowException : public std::exception {
+		const char *what() const throw();
+	};
+
+	class GradeTooHighException : public std::exception {
+		const char *what() const throw();
+	};
+
+	class FormNotSignedException : public std::exception {
+		const char *what() const throw();
+	};
+
 	const int getSign_grade() const;
 	const int getExecute_grade() const;
 	const std::string getName() const;

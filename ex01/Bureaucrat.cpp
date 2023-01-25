@@ -50,7 +50,9 @@ int Bureaucrat::getGrade() const {
 }
 
 void Bureaucrat::signForm(Form &form) {
-	if (form.beSigned(*this))
+	if (form.getSign())
+		std::cout << "Form has already been signed donut, Someone fire this clown" << std::endl;
+	else if (form.beSigned(*this))
 		std::cout << *this << " signed " << form << std::endl;
 	else
 		std::cout << *this << " couldn't sign " << form.getName() << " because Bureaucrat " << name << "'s grade is too low" << std::endl;

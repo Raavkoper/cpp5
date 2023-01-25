@@ -27,7 +27,7 @@ public:
 	class GradeTooHighException : public std::exception {
 		const char *what() const throw();
 	};
-	void setGrade(int new_grade);
+
 	const int getSign_grade();
 	const int getExecute_grade();
 	const std::string getName();

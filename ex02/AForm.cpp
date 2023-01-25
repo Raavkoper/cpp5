@@ -1,32 +1,8 @@
 #include "AForm.hpp"
 
-const int AForm::gradeChecker(int grade) {
-	try {
-		if (grade < 1) {
-			grade = 1;
-			throw 1;
-		}
-		if (grade > 150) {
-			grade = 150;
-			throw 2;
-		}
-	}
-	catch (int error) {
-		if (error == 2) {
-			std::cerr << "AForm::GradeTooLowException" << std::endl;
-		}
-		if (error == 1) {
-			std::cerr << "AForm::GradeTooHighException" << std::endl;
-		}
-	}
-	return (grade);
-}
-
 AForm::AForm()
 	: name("Unset AForm"), sign(0), sign_grade(150), execute_grade(150)
-{
-
-}
+{}
  
 AForm::AForm( const AForm& other) :
 	sign_grade(other.sign_grade), execute_grade(other.execute_grade) {
@@ -36,14 +12,19 @@ AForm::AForm( const AForm& other) :
 }
  
 AForm::AForm(const std::string newName, bool newSigned, const int newSign_grade, const int newExecute_grade) 
-	: name(newName), sign(newSigned), sign_grade(gradeChecker(newSign_grade)), execute_grade(gradeChecker(newExecute_grade))
+	: name(newName), sign(newSigned), sign_grade(newSign_grade), execute_grade(newExecute_grade)
 {
-
+	if (sign_grade > 150)
+		throw GradeTooLowException();
+	else if (sign_grade < 1)
+		throw GradeTooHighException();
+	if (execute_grade > 150)
+		throw GradeTooLowException();
+	else if (execute_grade < 1)
+		throw GradeTooHighException();
 }
 
-AForm::~AForm() {
-
-}
+AForm::~AForm() {}
 
 AForm&	AForm::operator=( const AForm& other ) {
 	return *this;
@@ -68,23 +49,27 @@ bool AForm::getSign() const {
 }
 
 bool AForm::beSigned(Bureaucrat &burrie) {
-	try {
-		if (burrie.getGrade() <= sign_grade) {
-			sign = 1;
-			return (1);
-		}
-		else
-			throw(2);
+	if (burrie.getGrade() <= sign_grade) {
+		sign = 1;
+		return (1);
 	}
-	catch (int error) {
-		std::cerr << "AForm::GradeTooLowException" << std::endl;
+	else {
+		throw GradeTooLowException();
 		return (0);
 	}
 }
 
-// void AForm::execute(Bureaucrat &executor) {
+const char *AForm::GradeTooLowException::what() const throw() {
+	return ("Grade's too low");
+}
 
-// }
+const char *AForm::GradeTooHighException::what() const throw() {
+	return ("Grade's too high");
+}
+
+const char *AForm::FormNotSignedException::what() const throw() {
+	return ("Form is not signed");
+}
 
 void AForm::setSign(bool new_sign) {
 	sign = new_sign;

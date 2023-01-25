@@ -8,7 +8,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string new_target)
 PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm& other) {
 	target = other.target;
 }
- 
+
 PresidentialPardonForm::~PresidentialPardonForm() {};
 
 PresidentialPardonForm&	PresidentialPardonForm::operator=( const PresidentialPardonForm& rhs ) {
