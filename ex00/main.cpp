@@ -36,7 +36,7 @@ int main() {
 	std::cout << man3 << std::endl;
 
 	std::cout << std::endl;
-	std::cout << "Incrementing Martin his value ten times" << std::endl;
+	std::cout << "Decrementing Martin his value ten times" << std::endl;
 	std::cout << std::endl;
 
 	for (int i = 0; i < 10; i++) {
@@ -46,7 +46,7 @@ int main() {
 	std::cout << man3 << std::endl;
 
 	std::cout << std::endl;
-	std::cout << "Trying to incrementing Martin his value one more time" << std::endl;
+	std::cout << "Trying to decrement Martin his value one more time" << std::endl;
 	std::cout << std::endl;
 
 	try {

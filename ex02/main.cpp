@@ -7,15 +7,19 @@ int main() {
 	ShrubberyCreationForm shrubby("Bamboo");
 	Bureaucrat jonna("Jonna", 145), bammi("Bammi", 50), fresku("Fresku", 4);
 
-	// bammi.signAForm(shrubby);
+	bammi.signForm(shrubby);
 	bammi.signForm(shrubby);
 	bammi.executeForm(shrubby);
 
-	// PresidentialPardonForm pressy("Obama");
-	// bammi.signForm(pressy);
-	// fresku.signForm(pressy);
+	PresidentialPardonForm pressy("Obama");
+	try {
+		bammi.signForm(pressy);
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	fresku.signForm(pressy);
 
-	// jonna.executeForm(pressy);
+	jonna.executeForm(pressy);
 
 	RobotomyRequestForm robby("Terminator");
 	try {
